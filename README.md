@@ -1,0 +1,1 @@
+# -EN05215---AUTOMATOS---2025---Projeto-da-maquina-enigma-em-python
