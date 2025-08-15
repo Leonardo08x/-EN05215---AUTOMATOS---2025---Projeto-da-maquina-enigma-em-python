@@ -59,6 +59,15 @@ def interface():
     # Botão para alternar, alinhado com mode_panel
     toggle_case_button = tk.Button(frame, text="Caps lock ativado", command=toggle_key_case)
     toggle_case_button.pack(side=tk.LEFT, padx=10, pady=10)
+
+    def limpar_texto():
+        nonlocal paper_text, paper_text_saida
+        paper_text = ''
+        paper_text_saida = ''
+        canvas.itemconfig(paper_id, text=paper_text)
+        canvas.itemconfig(paper_id_saida, text=paper_text_saida)
+    clear_button = tk.Button(frame, text="Limpar", command=limpar_texto)
+    clear_button.pack(side=tk.TOP, padx=10, pady=10)
     def update_paper(char):
         nonlocal paper_text, paper_text_saida
         paper_text += char
