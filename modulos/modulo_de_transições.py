@@ -5,12 +5,12 @@ def lista_ascii_unica(chave):
    random.shuffle(lista_ascii)
    return lista_ascii
 def transicoes(chave, modo):
-    return  { chave:letra for (chave,letra) in zip(lista_ascii_unica(chave) , [chr(simbolo) for simbolo in range(32,127) ],)}  if modo =="descriptografar" else { chave:letra for (chave,letra) in zip([chr(simbolo) for simbolo in range(32,127) ], lista_ascii_unica(chave))} 
+    return  { chave:letra for (chave,letra) in zip(lista_ascii_unica(chave) , [chr(simbolo) for simbolo in range(32,127) ],)}  if modo =="Descriptografar" else { chave:letra for (chave,letra) in zip([chr(simbolo) for simbolo in range(32,127) ], lista_ascii_unica(chave))} 
    
 
 
 #debug, checa se os valores se repetem, e se os modos geram dicionarios invertidos, REMOVER DA VERSÃO FINAL
-print(transicoes("ldfwiajfwai", "descriptografar"))
+'''print(transicoes("ldfwiajfwai", "descriptografar"))
 print(transicoes("ldfwiajfwai", "criptografar"))
 valores = transicoes("ca", "gay").values()
 
@@ -20,4 +20,4 @@ for i in valores:
         if i == j:
             count += 1
             if count == 2:
-             print(i+"="+j)
+             print(i+"="+j)'''

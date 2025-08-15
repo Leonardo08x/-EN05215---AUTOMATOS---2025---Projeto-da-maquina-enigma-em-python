@@ -1,6 +1,8 @@
 from PIL import Image, ImageTk
 import tkinter as tk
-from ui_utils.ui_coord_lists import *
+from .ui_utils.ui_coord_lists import *
+from modulos.modulo_de_computação import computação
+
 def interface():
     root = tk.Tk()
     frame = tk.Frame(root)
@@ -20,6 +22,7 @@ def interface():
     canvas.create_image(0, 0, anchor=tk.NW, image=bg_image)
     root.bg_image = bg_image
     paper_text = ''
+    paper_text_saida = ''
     paper_id = canvas.create_text(paper_pos, text=paper_text, anchor=tk.NW, font=('Courier', 12))
     paper_id_saida = canvas.create_text(paper_pos_saida, text=paper_text, anchor=tk.NW, font=('Courier', 12))
     rotor_letters = ['A', 'A', 'A']
@@ -31,12 +34,16 @@ def interface():
     selected_rotor = None
     selected_indicator = None
     def update_paper(char):
-        nonlocal paper_text
+        nonlocal paper_text, paper_text_saida
         paper_text += char
         if len(paper_text) > 20:
             paper_text = paper_text[-20:]
+        if len(paper_text_saida) > 20:
+            paper_text_saida = paper_text_saida[-20:]
         canvas.itemconfig(paper_id, text=paper_text)
-        canvas.itemconfig(paper_id_saida, text=paper_text)
+        paper_text_saida += computação(f"{rotor_letters[0]}{rotor_letters[1]}{rotor_letters[2]}",char,f"{mode_var.get()}")
+        canvas.itemconfig(paper_id_saida, text=paper_text_saida)
+        #debug
         print(f"Modo selecionado: {mode_var.get()}")
         print(f"Rotores: {rotor_letters}")
         print(f"Rotores: {rotor_letters[0]}{rotor_letters[1]}{rotor_letters[2]}")
@@ -66,5 +73,3 @@ def interface():
             selected_rotor = None
     root.bind("<Key>", on_key_press)
     root.mainloop()
-
-interface()
