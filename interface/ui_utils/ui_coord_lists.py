@@ -11,7 +11,7 @@ rotor_areas = [
         (BASE_ROTOR_COORD[0] - 50, BASE_ROTOR_COORD[1] + 100, BASE_ROTOR_COORD[0] + 50, BASE_ROTOR_COORD[1] + 200),
         (rotor_window_pos[2][0] - 50, rotor_window_pos[2][1] - 50, rotor_window_pos[2][0] + 50, rotor_window_pos[2][1] + 50)
     ]
-
+modes = ["Criptografar", "Descriptografar", "Debug"]
 BASE_COORD = (270, 570)  # Coordenada base inicial (exemplo: para 'Q')
 key_positions = {
         'Q': (BASE_COORD[0] + 0, BASE_COORD[1] + 0),
