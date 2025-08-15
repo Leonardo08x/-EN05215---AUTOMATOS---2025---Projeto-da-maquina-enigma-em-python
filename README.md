@@ -9,7 +9,7 @@ O projeto inclui a implementação do código, a elaboração de um artigo técn
 ## Integrantes
 
 * Enya Araújo
-* Leonardo da Rocha
+* Leonardo Cunha da Rocha
 * Matheus Diniz
 * Caio Barbosa
 
